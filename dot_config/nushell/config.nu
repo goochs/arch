@@ -545,6 +545,8 @@ let-env config = {
 
 
 ### Personal config
+# aliases
+alias vim = nvim
 
 # starship
 source ~/.cache/starship/init.nu

@@ -1,6 +1,6 @@
 live_config_reload: true
 env:
-  TERM: alacritty
+  TERM: xterm-256color
 
 window:
   padding:
@@ -12,16 +12,16 @@ scrolling:
   history: 100000
 font:
   normal:
-    family: Anonymous Pro
+    family: AnonymiceProNerdFont
     style: Regular 
   bold:
-    family: Anonymous Pro
+    family: AnonymiceProNerdFont
     style: Bold
   italic:
-    family: Anonymous Pro
+    family: AnonymiceProNerdFont
     style: Italic
   bold_italic:
-    family: Anonymous Pro
+    family: AnonymiceProNerdFont
     style: BoldItalic
   size: 12
 bell:
@@ -32,7 +32,7 @@ shell:
   args:
     - -l
     - -c 
-    - "tmuxinator default"
+    - "zellij a -c default"
 
 
 # Colors (Gruvbox dark)

@@ -1,0 +1,406 @@
+;---------------------------------------
+;	COLORS
+;---------------------------------------
+
+[colors]
+nord0 = #2E3440 
+nord1 = #3B4252 
+nord2 = #434C5E 
+nord3 = #4C566A 
+nord3-1 = #546076
+nord3-2 = #5C6A82
+nord4 = #D8DEE9 
+nord5 = #E5E9F0 
+nord6 = #ECEFF4 
+nord7 = #8FBCBB
+nord8 = #88C0D0
+nord9 = #81A1C1
+nord10 = #5E81AC
+nord11 = #BF616A
+nord12 = #D08770
+nord13 = #EBCB8B
+nord14 = #A3BE8C
+nord15 = #B48EAD
+
+bg0       = #282828
+soft_bg0  = #32302f
+hard_bg0  = #1d2021
+bg1       = #3c3836
+bg2       = #504945
+bg3       = #665c54
+bg4       = #7c6f64
+fg0       = #fbf1c7
+fg1       = #ebdbb2
+fg2       = #d5c4a1
+fg3       = #bdae93
+fg4       = #a89984
+red       = #fb4934
+green     = #b8bb26
+yellow    = #fabd2f
+blue      = #83a598
+purple    = #d3869b
+teal      = #8ec07c
+orange    = #fe8019
+gray      = #a89984
+bg_red    = #cc241d
+bg_green  = #98971a
+bg_yellow = #d79921
+bg_blue   = #458588
+bg_purple = #b16286
+bg_teal   = #689d6a
+bg_orange = #d65d0e
+bg_gray   = #928374
+
+transparent = #00000000
+
+;---------------------------------------
+;	PADDINGS
+;---------------------------------------
+
+[paddings]
+inner = 1
+outer = 2
+
+;---------------------------------------
+;	BAR
+;---------------------------------------
+
+[bar/top]
+bottom = false 
+fixed-center = true
+width = 100%
+height = 2%
+enable-ipc = true
+
+tray-position = right
+tray-maxsize = 16
+tray-background = ${colors.nord10}
+
+background = ${colors.nord0}
+foreground = ${colors.nord6}
+
+;---------------------------------------
+
+font-0 = JetBrains Mono:size=10;4
+font-1 = Font Awesome 6 Free Regular:size=10;4
+font-2 = Font Awesome 6 Free Solid:size=10;4
+font-3 = Font Awesome 6 Brands Regular:size=10;4
+font-4 = Material Design Icons:size=15;6
+font-5 = JetBrains Mono:size=17;6
+
+;---------------------------------------
+
+modules-left = i3 
+modules-center = time simplesep utc
+modules-right = arrow7 spotify spotify-prev spotify-play-pause spotify-next arrow6 pulseaudio padding6 arrow5 memory cpu temperature arrow4 net padding4 arrow3 vpn arrow1 power
+
+;---------------------------------------
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;---------------------------------------
+;	ARROWS AND PADDINGS MODULES
+;---------------------------------------
+
+[module/arrow1]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-background = ${colors.nord1}
+content-foreground = ${colors.nord10}
+
+[module/arrow2]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-background = ${colors.nord1}
+content-foreground = ${colors.nord0}
+
+[module/arrow3]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-background = ${colors.nord2}
+content-foreground = ${colors.nord1}
+
+[module/arrow4]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-background = ${colors.nord3}
+content-foreground = ${colors.nord2}
+
+[module/arrow5]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-background = ${colors.nord3-1}
+content-foreground = ${colors.nord3}
+
+[module/arrow6]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-background = ${colors.nord3-2}
+content-foreground = ${colors.nord3-1}
+
+[module/arrow7]
+type = custom/text
+content = "%{T6}%{T-}"
+content-font = 6
+content-foreground = ${colors.nord3-2}
+
+[module/padding4]
+type = custom/text
+content = " "
+content-background = ${colors.nord2}
+content-foreground = ${colors.nord2}
+
+[module/padding6]
+type = custom/text
+content = " "
+content-background = ${colors.nord3-1}
+content-foreground = ${colors.nord3-1}
+
+[module/simplesep]
+type = custom/text
+content = " | "
+
+;---------------------------------------
+;	I3 MODULE
+;---------------------------------------
+
+[module/i3]
+type = internal/i3
+
+label-focused = %icon% %name%
+label-focused-background = ${colors.nord10}
+label-focused-padding = ${paddings.outer}
+
+label-occupied = %icon% %name%
+label-occupied-background = ${colors.nord0}
+label-occupied-padding = ${paddings.outer}
+
+label-urgent = %icon% %name%
+label-urgent-foreground = ${colors.nord13}
+label-urgent-background = ${colors.nord0}
+label-urgent-padding = ${paddings.outer}
+
+label-empty = %icon% %name%
+label-empty-foreground = ${colors.nord3}
+label-empty-background = ${colors.nord0}
+label-empty-padding = ${paddings.outer}
+
+;---------------------------------------
+;	POWER MODULE
+;---------------------------------------
+
+[module/power]
+type = custom/menu
+
+format = <label-toggle><menu>
+
+label-open = 
+label-open-background = ${colors.nord10}
+label-open-padding = ${paddings.outer}
+
+label-close = 
+label-close-background = ${colors.nord10}
+label-close-padding = ${paddings.outer}
+
+menu-0-0 = 
+menu-0-0-exec = ~/.config/i3/lock.sh
+menu-0-0-background = ${colors.nord10}
+menu-0-0-padding = ${paddings.inner}
+
+menu-0-1 = 
+menu-0-1-exec = pkill i3
+menu-0-1-background = ${colors.nord10}
+menu-0-1-padding = ${paddings.inner}
+
+menu-0-2 = 
+menu-0-2-exec = sudo reboot
+menu-0-2-background = ${colors.nord10}
+menu-0-2-padding = ${paddings.inner}
+
+menu-0-3 = 
+menu-0-3-exec = sudo poweroff
+menu-0-3-background = ${colors.nord10}
+menu-0-3-padding-left = ${paddings.inner}
+menu-0-3-padding-right = ${paddings.outer}
+
+;---------------------------------------
+;	TIME MODULE
+;---------------------------------------
+
+[module/time]
+type = internal/date
+
+interval = 1
+date = %a, %Y-%m-%d %H:%M:%S
+
+;---------------------------------------
+;	UTC MODULE
+;---------------------------------------
+
+[module/utc]
+type = custom/script
+interval = 10
+exec = date -u +'%H:%M'
+
+;---------------------------------------
+;	TEMPERATURE MODULE
+;---------------------------------------
+
+[module/temperature]
+type = internal/temperature
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input 
+warn-temperature = 70
+
+format = <label>
+format-background = ${colors.nord3}
+label =  %temperature-c:2%
+label-padding-left = ${paddings.inner}
+label-padding-right = ${paddings.outer}
+
+format-warn = <label-warn>
+format-warn-background = ${colors.nord3}
+label-warn =  %temperature-c:2%
+label-warn-foreground = ${colors.nord12}
+label-warn-padding-left = ${paddings.inner}
+label-warn-padding-right = ${paddings.outer}
+
+;---------------------------------------
+;	CPU MODULE
+;---------------------------------------
+
+[module/cpu]
+type = internal/cpu
+
+format = <label>
+format-background = ${colors.nord3}
+format-padding = ${paddings.inner}
+label =  %percentage:2%%
+
+;---------------------------------------
+;	RAM MODULE
+;---------------------------------------
+
+[module/memory]
+type = internal/memory
+
+format = <label>
+format-background = ${colors.nord3}
+label =  %percentage_used:2%%
+label-padding-left = ${paddings.outer}
+label-padding-right = ${paddings.inner}
+
+;---------------------------------------
+;	PULSEAUDIO MODULE
+;---------------------------------------
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 5
+use-ui-max = false
+
+label-muted = 
+label-muted-background = ${colors.nord3-1}
+label-muted-padding-left = ${paddings.outer}
+label-muted-padding-right = ${paddings.inner}
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${colors.nord3-1}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-padding-left = ${paddings.outer}
+label-volume = %percentage%%
+label-volume-padding-right = ${paddings.inner}
+
+;---------------------------------------
+;	SPOTIFY MODULE
+;---------------------------------------
+
+[module/spotify]
+type = custom/script
+tail = true
+interval = 1
+; prefix symbol is shown before the text
+format-prefix =  |
+format = <label>
+format-background = ${colors.nord3-2}
+format-padding = 1
+exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
+
+[module/spotify-prev]
+type = custom/script
+exec = echo 
+format = <label>
+format-background = ${colors.nord3-2}
+format-padding = 1
+click-left = playerctl previous -p spotify
+
+[module/spotify-play-pause]
+type = custom/ipc
+hook-0 = echo  
+hook-1 = echo 
+initial = 1 
+format-background = ${colors.nord3-2}
+format-padding = 1
+click-left = playerctl play-pause -p spotify
+
+[module/spotify-next]
+type = custom/script
+exec = echo 
+format = <label>
+format-padding = 1
+format-background = ${colors.nord3-2}
+click-left = playerctl next -p spotify
+
+;---------------------------------------
+;	NETWORK MODULE
+;---------------------------------------
+
+[module/net]
+type = internal/network
+interval = 5
+interface = enp9s0
+format-connected = <label-connected>
+label-connected = %ifname% %local_ip%%{F#A3BE8C} up
+format-disconnected = <label-disconnected>
+label-disconnected = %{F#BF616A}%ifname% down
+format-connected-background = ${colors.nord2}
+format-disconnected-background = ${colors.nord2}
+
+;---------------------------------------
+;	VPN MODULE
+;---------------------------------------
+
+[module/vpn]
+type = custom/script
+interval = 60
+exec = ~/.config/polybar/scripts/vpn.sh
+format-background = ${colors.nord1}
+format-padding = 8px
+
+;---------------------------------------
+;	UPDATES MODULE
+;---------------------------------------
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates_arch_combined.sh
+interval = 1200
+format-padding = ${paddings.outer}
+format-background = ${colors.nord0}
+
+;---------------------------------------
+;	SETTINGS
+;---------------------------------------
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+

@@ -1,6 +1,7 @@
 require("gooch.set")
 require("gooch.remap")
-require("gooch.packer")
+require("gooch.lazy")
+require("gooch.lsp")
 
 vim.o.background = "dark" -- or "light" for light mode
 require("gruvbox").setup({
@@ -11,5 +12,3 @@ require("gruvbox").setup({
     },
 })
 vim.cmd([[colorscheme gruvbox]])
-
-
